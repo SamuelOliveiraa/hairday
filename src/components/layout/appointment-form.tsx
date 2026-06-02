@@ -24,6 +24,8 @@ export default function AppointmentForm() {
       <form className="flex-1 flex flex-col gap-3">
         <Text size="titleMedium">Horarios</Text>
 
+        <DatePicker/>
+
         <TimeSelector
           timeZone="morning"
           array={MORNING}
