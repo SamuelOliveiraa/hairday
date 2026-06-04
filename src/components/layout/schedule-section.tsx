@@ -7,14 +7,14 @@ import Image from "next/image";
 
 export default function ScheduleSection() {
   const morningSchedules = schedulesArray.filter(
-    schedule => schedule.hourAppointment < "12:00"
+    (schedule) => schedule.hourAppointment < "12:00"
   );
   const eveningSchedules = schedulesArray.filter(
-    schedule =>
+    (schedule) =>
       schedule.hourAppointment >= "12:00" && schedule.hourAppointment < "18:00"
   );
   const nightSchedules = schedulesArray.filter(
-    schedule => schedule.hourAppointment >= "18:00"
+    (schedule) => schedule.hourAppointment >= "18:00"
   );
 
   // const morningSchedules = [];

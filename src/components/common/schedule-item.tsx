@@ -14,7 +14,7 @@ export default function ScheduleItem({ appointment }: ScheduleItemProps) {
       <Text size="textMedium">{appointment.customer.name}</Text>
 
       <button className="ml-auto">
-        <TrashIcon className="text-yellow-500 size-6" />
+        <TrashIcon className="text-yellow-500 size-5" />
       </button>
     </div>
   );
