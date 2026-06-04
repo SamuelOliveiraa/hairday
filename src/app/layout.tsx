@@ -1,6 +1,13 @@
 import { Metadata } from "next";
 import "./globals.css";
-import { Catamaran } from "next/font/google";
+import { Catamaran, JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono"
+});
 
 const catamaran = Catamaran({
   subsets: ["latin"]
@@ -36,14 +43,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html
+      lang="pt-br"
+      suppressHydrationWarning
+      className={cn("font-mono", jetbrainsMono.variable)}
+    >
       <body
         className={
           catamaran.className +
           " min-h-full flex flex-col bg-gray-800 text-gray-100"
         }
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

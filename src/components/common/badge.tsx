@@ -9,13 +9,13 @@ interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const badgeVariants = tv({
-  base: "py-2 px-4 bg-gray-600 rounded-lg text-gray-200 hover:bg-gray-500 border border-gray-500 cursor-pointer transition-colors duration-300 ",
+  base: "py-2 px-4 bg-gray-600 rounded-lg text-gray-200 hover:bg-gray-500 border border-gray-500 cursor-pointer transition-colors duration-300",
   variants: {
     selected: {
       true: "border-yellow-300 text-yellow-300 hover:bg-gray-600"
     },
     disabled: {
-      true: "opacity-50 border-gray-600 bg-transparent hover:bg-transparent cursor-not-allowed"
+      true: "opacity-70 border-gray-500 bg-transparent hover:bg-transparent cursor-not-allowed"
     }
   },
   defaultVariants: {
@@ -32,14 +32,14 @@ export default function Badge({
   ...rest
 }: BadgeProps) {
   return (
-    <Text size="textMedium" asChild>
-      <span
+    <Text size="textMedium" as="div" asChild>
+      <button
         aria-disabled={disabled}
         className={badgeVariants({ className, selected, disabled })}
         {...rest}
       >
         {children}
-      </span>
+      </button>
     </Text>
   );
 }

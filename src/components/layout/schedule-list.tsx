@@ -1,3 +1,8 @@
+"use client";
+
+import { SunIcon, TrashIcon } from "@phosphor-icons/react";
+import { Text, DatePicker } from "../common";
+
 export default function ScheduleList() {
   return (
     <div className="flex-1">
@@ -12,7 +17,7 @@ export default function ScheduleList() {
           </Text>
         </div>
 
-        <DataPicker/>
+        <DatePicker />
       </div>
 
       {/* Container */}
@@ -20,21 +25,17 @@ export default function ScheduleList() {
         {/* Item Manha*/}
         <div>
           <header className="flex items-center gap-4">
-            <SunIcon/>
-            <Text size="textMedium">
-              Agende um atendimento
-            </Text>
-            
+            <SunIcon />
+            <Text size="textMedium">Agende um atendimento</Text>
+
             <Text size="textMedium" className="ml-auto">
               09h-12h
             </Text>
           </header>
 
           <div className="flex items-center p-5">
-            <Text size="textMedium">
-              11:00
-            </Text>
-            
+            <Text size="textMedium">11:00</Text>
+
             <Text size="textMedium" className="ml-auto">
               Ryan Donalt
             </Text>
@@ -44,9 +45,7 @@ export default function ScheduleList() {
             </button>
           </div>
         </div>
-        
       </div>
-
     </div>
   );
 }

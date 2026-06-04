@@ -1,4 +1,4 @@
-import { Text, Badge } from "@/components/ui";
+import { Text, Badge } from "@/components/common";
 
 interface TimeSelectorProps {
   array: { time: string; available: boolean }[];
