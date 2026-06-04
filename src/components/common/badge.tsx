@@ -34,6 +34,7 @@ export default function Badge({
   return (
     <Text size="textMedium" as="div" asChild>
       <button
+        type="button"
         aria-disabled={disabled}
         className={badgeVariants({ className, selected, disabled })}
         {...rest}

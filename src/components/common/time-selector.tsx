@@ -1,38 +1,46 @@
 import { Text, Badge } from "@/components/common";
 
 interface TimeSelectorProps {
-  array: { time: string; available: boolean }[];
-  timeZone: "morning" | "evening" | "night";
+  timeSlots: TimeSlot[];
+  period: DayPeriod;
   selectedTime: string;
   setSelectedTime: (time: string) => void;
 }
 
+interface TimeSlot {
+  time: string;
+  available: boolean;
+}
+
+type DayPeriod = "morning" | "evening" | "night";
+
+const PERIOD_LABELS: Record<DayPeriod, string> = {
+  morning: "Manhã",
+  evening: "Tarde",
+  night: "Noite"
+};
+
 export default function TimeSelector({
-  array,
-  timeZone,
+  timeSlots,
+  period,
   selectedTime,
   setSelectedTime
 }: TimeSelectorProps) {
-  const time = {
-    morning: "Manhã",
-    evening: "Tarde",
-    night: "Noite"
-  };
   return (
     <div className="flex flex-col gap-2">
       <Text size="titleMedium" className="text-gray-300">
-        {time[timeZone]}
+        {PERIOD_LABELS[period]}
       </Text>
 
       <div className="flex items-center gap-3 flex-wrap">
-        {array.map(item => (
+        {timeSlots.map(({ time, available }) => (
           <Badge
-            key={`item-${item.time}`}
-            onClick={() => item.available && setSelectedTime(item.time)}
-            disabled={!item.available}
-            selected={selectedTime === item.time}
+            key={`time-${time}`}
+            onClick={() => available && setSelectedTime(time)}
+            disabled={!available}
+            selected={selectedTime === time}
           >
-            {item.time}
+            {time}
           </Badge>
         ))}
       </div>

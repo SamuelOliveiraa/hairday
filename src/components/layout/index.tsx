@@ -1,5 +1,5 @@
 import Header from "./header";
 import AppointmentForm from "./appointment-form";
-import ScheduleList from "./schedule-list";
+import ScheduleSection from "./schedule-section";
 
-export { AppointmentForm, ScheduleList, Header };
+export { AppointmentForm, ScheduleSection, Header };
