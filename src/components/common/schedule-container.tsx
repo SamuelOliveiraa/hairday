@@ -27,12 +27,12 @@ const PERIOD_CONFIG: Record<"morning" | "evening" | "night", PeriodDetails> = {
   evening: {
     icon: <CloudSunIcon className="size-6 text-yellow-300" />,
     name: "Tarde",
-    hour: "12h-18h"
+    hour: "13h-18h"
   },
   night: {
     icon: <MoonStarsIcon className="size-6 text-yellow-300" />,
     name: "Noite",
-    hour: "18h-09h"
+    hour: "19h-21h"
   }
 };
 
